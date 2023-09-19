@@ -14,11 +14,13 @@ function Navbar() {
   const [isShown, setIsShown] = useState(false);
   return (
     <>
-      <header className="bg-navBg w-full p-8">
+      <header className="bg-navBg w-full p-8 bg-cover">
         <div className="flex items-center justify-start">
-          <h2 className={`${dancingScript.className} text-4xl`}>
-            The Cookie's Tale
-          </h2>
+          <Link href="/">
+            <h2 className={`${dancingScript.className} text-4xl`}>
+              The Cookie's Tale
+            </h2>
+          </Link>
         </div>
         <div className="flex items-center justify-end ">
           <h2 className={`${caveat.className} text-6xl`}>
@@ -30,7 +32,6 @@ function Navbar() {
         </div>
       </header>
       <header className="sticky top-0 h-20 w-full flex items-center justify-between px-48 py-3 z-[100] bg-navBg ">
-        {/* <div className="sticky w-full flex items-center justify-between mt-4"> */}
         <div>
           <ul className="flex items-center justify-center text-xl">
             <Link href="/">
@@ -41,22 +42,23 @@ function Navbar() {
             <li
               className="ml-2 xl:ml-4 flex group"
               onMouseOver={() => setIsShown(true)}
-              // onMouseLeave={() => setIsShown(false)}
             >
               <span>categories</span>
               {!isShown ? (
-                <RiArrowDropDownLine
+                <span
                   className="text-3xl transition ease
                 duration-300"
-                />
+                >
+                  <RiArrowDropDownLine />
+                </span>
               ) : (
-                <RiArrowDropUpLine
+                <span
                   className="text-3xl transition ease
                 duration-300"
-                />
+                >
+                  <RiArrowDropUpLine />
+                </span>
               )}
-              {/* className="text-3xl group-hover:rotate-180 transition ease
-              duration-300" */}
             </li>
           </ul>
         </div>
@@ -64,10 +66,14 @@ function Navbar() {
           <h1>Logo</h1>
         </div>
         <div className="flex">
-          <button className="bg-button flex items-center justify-between shadow-lg border border-border rounded-full p-3 mr-2 xl:mr-4">
-            <SlPencil />
-            <span className="ml-3">share your story</span>
-          </button>
+          <Link href="/addsecret">
+            <button className="bg-button flex items-center justify-between shadow-lg border border-border rounded-full p-3 mr-2 xl:mr-4">
+              <span>
+                <SlPencil />
+              </span>
+              <span className="ml-3">share your story</span>
+            </button>
+          </Link>
           <div>
             <form className="w-full flex justify-between items-center  bg-transparent border border-border rounded-full shadow-lg">
               <input
@@ -75,12 +81,13 @@ function Navbar() {
                 className="focus:outline-none bg-transparent border-none placeholder:text-sm placeholder:text-border py-3 pl-3 pr-1"
               ></input>
               <button className="text-border py-3 pr-3">
-                <AiOutlineSearch />
+                <span>
+                  <AiOutlineSearch />
+                </span>
               </button>
             </form>
           </div>
         </div>
-        {/* </div> */}
       </header>
       {isShown && (
         <div

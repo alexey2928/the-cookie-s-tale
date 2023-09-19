@@ -14,6 +14,7 @@ module.exports = {
         navBg: "#e3d5ca",
         button: "#ccd5ae",
         border: "#a3b18a",
+        progressBar: "#dad7cd",
       },
     },
   },
